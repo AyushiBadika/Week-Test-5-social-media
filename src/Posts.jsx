@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 
 export default function Posts({ theme }) {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   let page = 0;
   const [like, setLike] = useState(false);
   async function fetchPostData() {
+    setIsLoading(true);
     const response = await fetch(
       `https://dummyapi.io/data/v1/post?page=${page}`,
       {
@@ -18,6 +20,7 @@ export default function Posts({ theme }) {
     ).then((res) => res.json());
     console.log(response.data);
     setData(response.data);
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -42,6 +45,10 @@ export default function Posts({ theme }) {
     setData((prev) => [...prev, ...response.data]);
   };
   console.log(theme);
+
+  if (isLoading) {
+    return <div className="loader"></div>;
+  }
   return (
     <div
       className={`${
@@ -53,7 +60,7 @@ export default function Posts({ theme }) {
           return (
             <div
               key={dataEl.id}
-              className={`shadow-md rounded-sm w-1/2 ${
+              className={`shadow-md rounded-sm md:w-1/2 w-3/4 ${
                 theme == "light" ? "bg-white" : "bg-gray-700"
               }`}
             >

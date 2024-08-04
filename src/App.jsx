@@ -1,9 +1,8 @@
-import Page from "./Page.jsx";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
 import Posts from "./Posts.jsx";
 import { useState } from "react";
+import Page from "./Page.jsx";
 export default function App() {
   const [theme, setTheme] = useState("light");
 
