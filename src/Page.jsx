@@ -30,11 +30,11 @@ export default function Page({ theme }) {
     <div
       className={`${
         theme == "light" ? "bg-white" : "bg-black"
-      }  py-10 w-full h-full flex justify-center pb-20 `}
+      }  py-10 w-full h-[100vh] flex justify-center pb-20 `}
     >
       {data && (
         <div
-          className={`flex flex-col gap-4 shadow-md md:w-1/2 w-3/4  ${
+          className={`flex flex-col gap-4 shadow-md md:w-1/2 w-3/4 h-min  ${
             theme == "light" ? "bg-white" : "bg-gray-700"
           }`}
         >

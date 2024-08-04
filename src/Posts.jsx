@@ -53,7 +53,7 @@ export default function Posts({ theme }) {
     <div
       className={`${
         theme == "light" ? "bg-white" : "bg-black"
-      }  w-full flex flex-col gap-4 items-center pt-20`}
+      }  w-full flex flex-col gap-4 items-center py-20`}
     >
       {data?.length > 0 &&
         data.map((dataEl) => {
